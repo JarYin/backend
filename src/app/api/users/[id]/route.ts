@@ -8,7 +8,7 @@ const client = new Client({
 client.connect();
 
 //-------------------------------------------------------------------------------------
-export async function GET(request: number, { params }: { params: { id: number } }) {
+export async function GET(request: Request, { params }: { params: { id: number } }) {
     const { id } = params;
     try {
         const result = await client.query('SELECT * FROM tbl_users WHERE id = $1', [id]);
@@ -25,7 +25,7 @@ export async function GET(request: number, { params }: { params: { id: number } 
     }
 }
 //-------------------------------------------------------------------------------------
-export async function DELETE(request: number, { params }: { params: { id: number } }) {
+export async function DELETE(request: Request, { params }: { params: { id: number } }) {
     const { id } = params;
     try {
         const res = await client.query('DELETE FROM tbl_users WHERE id = $1 RETURNING *', [id]);
