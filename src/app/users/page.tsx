@@ -7,7 +7,7 @@ export default function Page() {
   useEffect(() => {
     async function getUsers() {
       try {
-        const res = await fetch('http://localhost:3000/api/users');
+        const res = await fetch('https://backend-b5e7q05eh-jaryins-projects.vercel.app/api/users');
         if (!res.ok) {
           console.error('Failed to fetch data');
           return;
